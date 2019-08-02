@@ -1,0 +1,24 @@
+Host console
+    IdentityFile ~/.ssh/key.pem
+    StrictHostKeyChecking no
+Host haproxy
+    IdentityFile ~/.ssh/key.pem
+    StrictHostKeyChecking no
+Host controller-0
+    IdentityFile ~/.ssh/key.pem
+    StrictHostKeyChecking no
+Host controller-1
+    IdentityFile ~/.ssh/key.pem
+    StrictHostKeyChecking no
+Host controller-2
+    IdentityFile ~/.ssh/key.pem
+    StrictHostKeyChecking no
+Host worker-0
+    IdentityFile ~/.ssh/key.pem
+    StrictHostKeyChecking no
+Host worker-1
+    IdentityFile ~/.ssh/key.pem
+    StrictHostKeyChecking no
+Host worker-2
+    IdentityFile ~/.ssh/key.pem
+    StrictHostKeyChecking no

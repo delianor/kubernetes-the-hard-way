@@ -27,6 +27,32 @@ done
 10.240.0.22 10.200.2.0/24
 ```
 
+## Routes Vagrant
+
+up route add -net 10.200.0.0/24 gw 10.240.0.20
+up route add -net 10.200.1.0/24 gw 10.240.0.21
+up route add -net 10.200.2.0/24 gw 10.240.0.22
+
+
+```
+cat <<EOF | sudo tee -a /etc/netplan/50-vagrant.yaml
+      routes:
+EOF
+for i in 0 1 2; do
+if [ $(hostname -s  | sed -e "s/^.*-\(.*\)$/\1/") != $i ]
+then
+cat <<EOF | sudo tee -a /etc/netplan/50-vagrant.yaml
+      - to: 10.200.${i}.0
+        via: 10.240.0.2${i}
+EOF
+fi
+done
+```
+
+```
+sudo netplan apply
+```
+
 ## Routes
 
 Create network routes for each worker instance:

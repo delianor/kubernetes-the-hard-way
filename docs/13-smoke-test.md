@@ -16,8 +16,7 @@ kubectl create secret generic kubernetes-the-hard-way \
 Print a hexdump of the `kubernetes-the-hard-way` secret stored in etcd:
 
 ```
-gcloud compute ssh controller-0 \
-  --command "sudo ETCDCTL_API=3 etcdctl get \
+ssh controller-0 "sudo ETCDCTL_API=3 etcdctl get \
   --endpoints=https://127.0.0.1:2379 \
   --cacert=/etc/etcd/ca.pem \
   --cert=/etc/etcd/kubernetes.pem \
@@ -32,17 +31,17 @@ gcloud compute ssh controller-0 \
 00000010  73 2f 64 65 66 61 75 6c  74 2f 6b 75 62 65 72 6e  |s/default/kubern|
 00000020  65 74 65 73 2d 74 68 65  2d 68 61 72 64 2d 77 61  |etes-the-hard-wa|
 00000030  79 0a 6b 38 73 3a 65 6e  63 3a 61 65 73 63 62 63  |y.k8s:enc:aescbc|
-00000040  3a 76 31 3a 6b 65 79 31  3a dd 3f 36 6c ce 65 9d  |:v1:key1:.?6l.e.|
-00000050  b3 b1 46 1a ba ae a2 1f  e4 fa 13 0c 4b 6e 2c 3c  |..F.........Kn,<|
-00000060  15 fa 88 56 84 b7 aa c0  7a ca 66 f3 de db 2b a3  |...V....z.f...+.|
-00000070  88 dc b1 b1 d8 2f 16 3e  6b 4a cb ac 88 5d 23 2d  |...../.>kJ...]#-|
-00000080  99 62 be 72 9f a5 01 38  15 c4 43 ac 38 5f ef 88  |.b.r...8..C.8_..|
-00000090  3b 88 c1 e6 b6 06 4f ae  a8 6b c8 40 70 ac 0a d3  |;.....O..k.@p...|
-000000a0  3e dc 2b b6 0f 01 b6 8b  e2 21 29 4d 32 d6 67 a6  |>.+......!)M2.g.|
-000000b0  4e 6d bb 61 0d 85 22 ea  f4 d6 2d 0a af 3c 71 85  |Nm.a.."...-..<q.|
-000000c0  96 27 c9 ec 90 e3 56 8c  94 a7 1c 9a 0e 00 28 11  |.'....V.......(.|
-000000d0  18 28 f4 33 42 d9 57 d9  e3 e9 1c 38 e3 bc 1e c3  |.(.3B.W....8....|
-000000e0  d2 47 f3 20 60 be b8 57  a7 0a                    |.G. `..W..|
+00000040  3a 76 31 3a 6b 65 79 31  3a 5c d8 e8 bb dd 38 8e  |:v1:key1:\....8.|
+00000050  7d 68 cd e8 2a 6b fb 04  61 a3 97 01 4c 08 b5 75  |}h..*k..a...L..u|
+00000060  7a a4 b8 10 6c 56 52 5d  d7 af 84 41 58 c5 69 0f  |z...lVR]...AX.i.|
+00000070  9d 3f f6 64 04 51 37 c1  9d d2 9c e3 88 d0 9e b0  |.?.d.Q7.........|
+00000080  26 70 94 d4 1e 0a 1e 4d  52 89 33 16 74 a0 4a 26  |&p.....MR.3.t.J&|
+00000090  39 99 66 60 47 d9 75 ae  05 ca 97 19 0c 12 85 68  |9.f`G.u........h|
+000000a0  cb 1b f7 29 cd 2f c7 68  9d 7a d1 c9 fd d5 47 58  |...)./.h.z....GX|
+000000b0  43 49 7b 7b 1e 7c ca 48  02 90 a7 80 cc d8 e8 19  |CI{{.|.H........|
+000000c0  8f 87 9e 61 f2 b5 08 40  ab de b0 29 21 f1 b1 d3  |...a...@...)!...|
+000000d0  47 b7 33 a7 52 b5 c4 27  11 28 e5 b1 e5 c8 57 e2  |G.3.R..'.(....W.|
+000000e0  6c 58 cc 42 22 ce 19 3d  73 0a                    |lX.B"..=s.|
 000000ea
 ```
 
